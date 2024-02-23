@@ -1,0 +1,23 @@
+⁜ Sequência de Comandos que devem ser executados para a criação de Backup e para Recovery do BD (Windows 10, 11, ...)
+ (Atenção a Versão do MySQL, Nestes Passos Estamos utilizando a versão MySQL Server 8.2)
+
+1° Passo:(Execute este Passo antes de Realizar um Backup ou um Recovery)
+	Inicialmente pesquise a Aplicação "Prompt De Comando" e execute-a como Administrador
+
+⁜ Backup
+
+	1° - Insira o Comando: cd C:\Program Files\MySQL\MySQL Server 8.2\bin\
+	2° - Insira o Comando: mysqldump -u root -p --databases desafio_dio_sistemaecommerce > Sistema_Ecommerce_Recovery.sql
+	3° - Coloque a Senha do Administrador do Banco de Dados(DB)
+	4° - Insira o Comando: dir (Veja se foi criado o arquivo "Sistema_Ecommerce_Recovery.sql")
+	--Backup Realizado
+	(Este backup Pega todo o esquema do Banco de Dados e toda a Massa de Dados)
+
+⁜ Recovery
+	1° - Insira o Comando: mysql --u root -p < Sistema_Ecommerce_Recovery.sql
+	2° - Coloque a Senha do Administrador do Banco de Dados(DB)
+	--Recovery Realizado (Todos os dados e Tabelas estão Disponíveis para Operações) 
+
+comandos específicos:
+--no-data (Para o Backup ddo Schema sem os dados)
+--no-create-info (Para os Dados sem o Esquema ou Tabelas)
